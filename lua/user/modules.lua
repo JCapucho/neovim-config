@@ -9,11 +9,16 @@ return NewConfig({
 	'telescope',
 
 	'lsp',
+	'repl',
 	'neogit',
 	'treesitter',
 	'completion',
 
+	'web',
+	'neorg',
 	'languages.nix',
 	'languages.lua',
 	'languages.rust',
+	'languages.json',
+	'languages.python',
 })

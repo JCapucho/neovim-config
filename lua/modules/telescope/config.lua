@@ -15,5 +15,11 @@ require("which-key").register({
 			require('telescope.builtin').live_grep()
 		end,
 		"Search in project's files"
-	}
+	},
+	["u"] = {
+		function()
+			require("telescope").extensions.undo.undo()
+		end,
+		"Navigate undo history"
+	},
 }, { prefix = "<leader>" })

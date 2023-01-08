@@ -1,8 +1,8 @@
-local cmp = require 'cmp'
+local cmp = require('cmp')
 
 local sources = {
 	{
-		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
 	},
 	{
 		{ name = 'path' },
@@ -11,8 +11,7 @@ local sources = {
 }
 
 if IsModuleEnabled('lsp') then
-	table.insert(sources[1], { name = 'nvim_lsp_signature_help' })
-	table.insert(sources[1], { name = 'luasnip' })
+	table.insert(sources[1], { name = 'nvim_lsp' })
 end
 
 cmp.setup({

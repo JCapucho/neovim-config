@@ -18,8 +18,6 @@ local after = {
 if IsModuleEnabled('lsp') then
 	use({ 'hrsh7th/cmp-nvim-lsp' })
 	table.insert(after, 'cmp-nvim-lsp')
-	use({ 'hrsh7th/cmp-nvim-lsp-signature-help' })
-	table.insert(after, 'cmp-nvim-lsp-signature-help')
 end
 
 use({

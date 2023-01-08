@@ -17,3 +17,10 @@ use({
 		require('telescope').load_extension('fzf')
 	end
 })
+use({
+	'debugloop/telescope-undo.nvim',
+	after = 'telescope',
+	config = function()
+		require("telescope").load_extension("undo")
+	end
+})
