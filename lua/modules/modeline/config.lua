@@ -221,9 +221,13 @@ local c = {
 		end,
 		hl = vi_mode_hl,
 	},
-	file_type = {
+	filetype = {
 		provider = function()
-			return fmt(" %s ", vim.bo.filetype)
+			if vim.bo.filetype == "" then
+				return ""
+			else
+				return fmt(" %s ", vim.bo.filetype)
+			end
 		end,
 		hl = "UserSLAlt",
 	},
@@ -243,7 +247,7 @@ local c = {
 	},
 	file_enc = {
 		provider = function()
-			if vim.bo.fileencoding ~= "utf-8" then
+			if vim.bo.fileencoding ~= "utf-8" and vim.bo.fileencoding ~= "" then
 				return fmt(" %s ", vim.bo.fileencoding)
 			else
 				return ""
@@ -307,7 +311,7 @@ local active = {
 		c.lsp_info,
 		c.lsp_hint,
 		c.lsp_status,
-		c.file_type,
+		c.filetype,
 		c.file_enc,
 		c.position,
 	},
@@ -315,7 +319,7 @@ local active = {
 
 local inactive = {
 	{ -- left
-		c.file_type,
+		c.filetype,
 		c.default, -- must be last
 	},
 	{ c.position }, -- right
