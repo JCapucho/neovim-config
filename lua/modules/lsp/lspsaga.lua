@@ -15,7 +15,7 @@ require("which-key").register({
 		["f"] = { "<Cmd>Lspsaga lsp_finder<CR>", "Find" },
 		["a"] = { "<Cmd>Lspsaga code_action<CR>", "Apply code action" },
 		["r"] = { "<Cmd>Lspsaga rename<CR>", "Rename" },
-		["d"] = { "<Cmd>Lspsaga peek_definition<CR>", "Goto definition" },
+		["d"] = { function() vim.lsp.buf.definition() end, "Goto definition" },
 		["h"] = {
 			function() vim.lsp.buf.hover() end,
 			"Open documentation for current item"
