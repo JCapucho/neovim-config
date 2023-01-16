@@ -1,9 +1,7 @@
 local cmp = require('cmp')
 
 local sources = {
-	{
-		{ name = 'luasnip' },
-	},
+	{},
 	{
 		{ name = 'path' },
 		{ name = 'buffer' },
@@ -13,6 +11,8 @@ local sources = {
 if IsModuleEnabled('lsp') then
 	table.insert(sources[1], { name = 'nvim_lsp' })
 end
+
+table.insert(sources[1], { name = 'luasnip' })
 
 cmp.setup({
 	snippet = {
@@ -29,6 +29,8 @@ cmp.setup({
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
+		['<C-j>'] = cmp.mapping.select_next_item(),
+		['<C-k>'] = cmp.mapping.select_prev_item(),
 		['<Tab>'] = cmp.mapping.confirm({ select = true }),
 	}),
 	sources = cmp.config.sources(unpack(sources))
