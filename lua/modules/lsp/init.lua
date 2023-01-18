@@ -2,6 +2,7 @@ local use = require('packer').use
 
 use({
 	'glepnir/lspsaga.nvim',
+	commit = '7cdeac60c1e5e92eb5c8076555a35cb13c40c234',
 	config = function()
 		require('modules.lsp.lspsaga')
 	end

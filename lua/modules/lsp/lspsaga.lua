@@ -1,10 +1,12 @@
-local saga = require("lspsaga")
-saga.init_lsp_saga({
-	preview_lines_above = 5,
-	max_preview_lines = 5,
-	code_action_lightbulb = {
+require('lspsaga').setup({
+	preview = {
+		lines_above = 5,
+		lines_below = 5,
+	},
+	lightbulb = {
 		sign = false,
 	},
+	request_timeout = 2000,
 })
 
 vim.diagnostic.config({ signs = false })
