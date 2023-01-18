@@ -11,6 +11,12 @@ ensureGrammar('web', 'tsx')
 ensureGrammar('web', 'html')
 ensureGrammar('web', 'javascript')
 ensureGrammar('web', 'typescript')
+
+ensureGrammar('neogit', 'gitcommit')
+ensureGrammar('neogit', 'gitignore')
+ensureGrammar('neogit', 'gitattributes')
+ensureGrammar('neogit', 'git_rebase')
+
 ensureGrammar('languages.nix', 'nix')
 ensureGrammar('languages.lua', 'lua')
 ensureGrammar('languages.rust', 'rust')
