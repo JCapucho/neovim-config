@@ -11,6 +11,7 @@ return NewConfig({
 	'lsp',
 	'repl',
 	'neogit',
+	'notify',
 	'treesitter',
 	'completion',
 
