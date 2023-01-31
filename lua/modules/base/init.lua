@@ -51,3 +51,8 @@ use({
 		require('Comment').setup(config)
 	end
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.vert", "*.frag", "*.comp" },
+	command = "set filetype=glsl",
+})
