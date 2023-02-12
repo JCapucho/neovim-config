@@ -23,6 +23,10 @@ ensureGrammar('languages.rust', 'rust')
 ensureGrammar('languages.json', 'json')
 ensureGrammar('languages.python', 'python')
 
+require('nvim_context_vt').setup({
+	disable_virtual_lines = true,
+})
+
 require('nvim-treesitter.configs').setup({
 	ensure_installed = ensure_installed,
 	highlight = {

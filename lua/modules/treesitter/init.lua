@@ -1,6 +1,6 @@
 local use = require('packer').use
 
-use({ 'p00f/nvim-ts-rainbow' })
+use({ 'https://gitlab.com/HiPhish/nvim-ts-rainbow2.git' })
 use({ 'haringsrob/nvim_context_vt' })
 use({ 'nvim-treesitter/playground' })
 use({ 'nvim-treesitter/nvim-treesitter-textobjects' })

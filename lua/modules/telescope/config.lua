@@ -16,6 +16,12 @@ require("which-key").register({
 		end,
 		"Search in project's files"
 	},
+	[","] = {
+		function()
+			require('telescope.builtin').buffers()
+		end,
+		"Browse open buffers"
+	},
 	["u"] = {
 		function()
 			require("telescope").extensions.undo.undo()
