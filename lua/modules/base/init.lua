@@ -56,3 +56,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = { "*.vert", "*.frag", "*.comp" },
 	command = "set filetype=glsl",
 })
+
+use({
+	'nmac427/guess-indent.nvim',
+	config = function()
+		require('guess-indent').setup({})
+	end,
+})
