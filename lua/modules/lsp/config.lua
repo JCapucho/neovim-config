@@ -62,7 +62,6 @@ moduleServer("languages.json", "jsonls", function()
 end)
 moduleServer("languages.python", "pyright", function()
 	local path = require('lspconfig/util').path
-	local exepath = vim.fn.exepath;
 
 	local function get_python_path(workspace)
 		-- Use activated virtualenv.
@@ -86,7 +85,7 @@ moduleServer("languages.python", "pyright", function()
 		end
 
 		-- Fallback to system Python.
-		return exepath('python3') or exepath('python') or 'python'
+		return utils.findExecutable({ 'python3', 'python' })
 	end
 
 	return {
@@ -108,11 +107,7 @@ moduleServer("web", "html")
 moduleServer("web", "cssls")
 moduleServer("web", "tsserver")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-if IsModuleEnabled('completion') then
-	capabilities = require('cmp_nvim_lsp').default_capabilities()
-end
+local capabilities = lsp_utils.get_capabilites()
 
 for server, server_config in pairs(servers) do
 	local base_config = {

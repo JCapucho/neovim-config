@@ -22,5 +22,6 @@ return NewConfig({
 		'languages.lua',
 		'languages.rust',
 		'languages.json',
+		'languages.java',
 		'languages.python',
 	})
