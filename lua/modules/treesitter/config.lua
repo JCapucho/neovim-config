@@ -22,6 +22,7 @@ ensureGrammar('languages.lua', 'lua')
 ensureGrammar('languages.rust', 'rust')
 ensureGrammar('languages.json', 'json')
 ensureGrammar('languages.java', 'java')
+ensureGrammar('languages.dhall', 'dhall')
 ensureGrammar('languages.python', 'python')
 
 require('nvim_context_vt').setup({

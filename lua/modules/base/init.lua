@@ -57,6 +57,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "set filetype=glsl",
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.dhall" },
+	command = "set filetype=dhall",
+})
+
 use({
 	'nmac427/guess-indent.nvim',
 	config = function()
