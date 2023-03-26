@@ -1,9 +1,18 @@
 local cmp = require('cmp')
+local cmp_buffer = require('cmp_buffer')
 
 local sources = {
 	{},
 	{
 		{ name = 'path' },
+		{
+			name = 'spell',
+			option = {
+				enable_in_context = function()
+					return require('cmp.config.context').in_treesitter_capture('spell')
+				end,
+			}
+		},
 		{ name = 'buffer' },
 	}
 }
@@ -21,8 +30,11 @@ cmp.setup({
 		end,
 	},
 	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		completion = {
+			winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+			col_offset = -3,
+			side_padding = 0,
+		},
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -33,7 +45,26 @@ cmp.setup({
 		['<C-k>'] = cmp.mapping.select_prev_item(),
 		['<Tab>'] = cmp.mapping.confirm({ select = true }),
 	}),
-	sources = cmp.config.sources(unpack(sources))
+	sources = cmp.config.sources(unpack(sources)),
+	sorting = {
+		comparators = {
+			function(...) return cmp_buffer:compare_locality(...) end,
+		}
+	},
+	view = {
+		entries = { name = 'custom', selection_order = 'near_cursor' }
+	},
+	formatting = {
+		fields = { "kind", "abbr", "menu" },
+		format = function(entry, vim_item)
+			local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+			local strings = vim.split(kind.kind, "%s", { trimempty = true })
+			kind.kind = " " .. (strings[1] or "") .. " "
+			kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+			return kind
+		end,
+	},
 })
 
 -- git commit completions

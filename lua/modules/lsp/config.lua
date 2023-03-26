@@ -35,6 +35,10 @@ moduleServer("languages.lua", "lua_ls", function()
 				telemetry = {
 					enable = false,
 				},
+				completion = {
+					workspaceWord = false,
+					showWord = "Disable"
+				}
 			},
 		}
 	}
