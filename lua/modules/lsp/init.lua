@@ -1,13 +1,6 @@
 local use = require('packer').use
 
 use({
-	'glepnir/lspsaga.nvim',
-	commit = '7cdeac60c1e5e92eb5c8076555a35cb13c40c234',
-	config = function()
-		require('modules.lsp.lspsaga')
-	end
-})
-use({
 	'jose-elias-alvarez/null-ls.nvim',
 	requires = { 'nvim-lua/plenary.nvim' },
 	config = function()
@@ -32,3 +25,19 @@ use({
 		require('modules.lsp.config')
 	end,
 })
+
+if IsModuleEnabled('treesitter') and IsModuleEnabled('icons') then
+	-- LSPSaga provides some nice UI improvements for lsp but requires
+	-- treesitter and icons to be enabled
+	use({
+		'glepnir/lspsaga.nvim',
+		branch = "main",
+		config = function()
+			require('modules.lsp.lspsaga')
+		end,
+		requires = {
+			{ "nvim-tree/nvim-web-devicons" },
+			{ "nvim-treesitter/nvim-treesitter" }
+		}
+	})
+end

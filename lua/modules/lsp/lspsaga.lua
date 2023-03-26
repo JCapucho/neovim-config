@@ -3,13 +3,10 @@ require('lspsaga').setup({
 		lines_above = 5,
 		lines_below = 5,
 	},
-	lightbulb = {
-		sign = false,
-	},
 	request_timeout = 2000,
 })
 
-vim.diagnostic.config({ signs = false })
+vim.o.signcolumn = "no" -- Disable gutter
 
 require("which-key").register({
 	c = {
@@ -18,14 +15,10 @@ require("which-key").register({
 		["a"] = { "<Cmd>Lspsaga code_action<CR>", "Apply code action" },
 		["r"] = { "<Cmd>Lspsaga rename<CR>", "Rename" },
 		["d"] = { function() vim.lsp.buf.definition() end, "Goto definition" },
-		["h"] = {
-			function() vim.lsp.buf.hover() end,
-			"Open documentation for current item"
-		},
+		["h"] = { "<cmd>Lspsaga hover_doc<CR>", "Open documentation for current item" },
 		["e"] = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Show diagnostics in line" },
-		["E"] = { "<Cmd>Lspsaga show_cursor_diagnostics<CR>", "Show diagnostics under cursor" },
 		["n"] = { "<Cmd>Lspsaga diagnostic_jump_next<CR>", "Jump to next diagnostic" },
 		["N"] = { "<Cmd>Lspsaga diagnostic_jump_prev<CR>", "Jump to previous diagnostic" },
-		["o"] = { "<Cmd>LSoutlineToggle<CR>", "Open outline" },
+		["o"] = { "<Cmd>Lspsaga outline<CR>", "Open outline" },
 	},
 }, { prefix = "<leader>" })

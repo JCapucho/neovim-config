@@ -6,6 +6,10 @@ local function ensureGrammar(module, grammar)
 	end
 end
 
+-- Needed for lspsaga
+ensureGrammar('lsp', 'markdown')
+ensureGrammar('lsp', 'markdown_inline')
+
 ensureGrammar('web', 'css')
 ensureGrammar('web', 'tsx')
 ensureGrammar('web', 'html')
@@ -54,14 +58,12 @@ require('nvim-treesitter.configs').setup({
 				["ab"] = "@block.outer",
 				["ac"] = "@call.outer",
 				["ap"] = "@parameter.outer",
-
 				["ia"] = "@attribute.inner",
 				["if"] = "@function.inner",
 				["is"] = "@class.inner",
 				["ib"] = "@block.inner",
 				["ic"] = "@call.inner",
 				["ip"] = "@parameter.inner",
-
 				["oc"] = "@comment.outer",
 				["os"] = "@statement.outer",
 			},
