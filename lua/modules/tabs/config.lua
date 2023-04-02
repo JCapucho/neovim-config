@@ -1,8 +1,11 @@
 require('bufferline').setup({
 	animation = false,
 	auto_hide = true,
-	closable = false,
-	icons = IsModuleEnabled('icons'),
+	icons = {
+		button = false,
+		modified = { button = false },
+		filetype = { enabled = IsModuleEnabled('icons') }
+	},
 })
 
 -- Buffer navigation
