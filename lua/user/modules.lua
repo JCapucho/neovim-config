@@ -1,6 +1,4 @@
 return NewConfig({
-	'base',
-
 	'icons',
 	'theming',
 	'dashboard',

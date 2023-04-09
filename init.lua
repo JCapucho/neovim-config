@@ -36,6 +36,8 @@ local modules = require('user.modules')
 
 IsModuleEnabled = function(module) return modules[module] end
 
+require('modules.base')
+
 for name, _ in pairs(modules) do
 	require(string.format('modules.%s', name))
 end

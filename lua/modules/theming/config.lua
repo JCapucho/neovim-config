@@ -13,6 +13,7 @@ require('nightfox').setup({
 			cmp = IsModuleEnabled('completion'),
 			dashboard = IsModuleEnabled('dashboard'),
 			lsp_saga = IsModuleEnabled('lsp'),
+			native_lsp = IsModuleEnabled('lsp'),
 		},
 	},
 })
