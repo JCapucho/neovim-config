@@ -111,6 +111,7 @@ moduleServer("web", "html")
 moduleServer("web", "cssls")
 moduleServer("web", "tsserver")
 moduleServer("languages.dhall", "dhall_lsp_server")
+moduleServer("languages.latex", "texlab")
 
 local capabilities = lsp_utils.get_capabilites()
 

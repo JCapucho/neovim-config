@@ -23,4 +23,5 @@ return NewConfig({
 	'languages.java',
 	'languages.python',
 	'languages.dhall',
+	'languages.latex',
 })

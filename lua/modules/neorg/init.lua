@@ -15,10 +15,14 @@ use({
 	after = after,
 	run = ":Neorg sync-parsers",
 	config = function()
-		local modules = { ["core.defaults"] = {} }
+		local modules = {
+			["core.defaults"] = {},
+			["core.export"] = {},
+			["core.export.markdown"] = {}
+		}
 
 		if IsModuleEnabled('completion') then
-			modules["core.norg.completion"] = {
+			modules["core.completion"] = {
 				config = { engine = 'nvim-cmp' }
 			}
 		end
