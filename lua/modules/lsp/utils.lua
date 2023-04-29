@@ -30,6 +30,19 @@ local function on_attach(client, bufnr)
 			end,
 		})
 	end
+
+	-- Avoid null-ls breaking the formatexpr if no formatting source is available
+	--
+	-- https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts#avoid-breaking-formatexpr-ie-gq
+	if client.server_capabilities.documentFormattingProvider then
+		if
+			client.name == "null-ls" and null_ls_formats or client.name ~= "null-ls"
+		then
+			vim.bo[bufnr].formatexpr = "v:lua.vim.lsp.formatexpr()"
+		else
+			vim.bo[bufnr].formatexpr = nil
+		end
+	end
 end
 
 local function get_capabilites()
