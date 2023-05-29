@@ -49,17 +49,10 @@ use({
 		end
 
 		require('Comment').setup(config)
+
+		local ft = require('Comment.ft')
+		ft.d2 = '#%s'
 	end
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.vert", "*.frag", "*.comp" },
-	command = "set filetype=glsl",
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.dhall" },
-	command = "set filetype=dhall",
 })
 
 use({
@@ -67,4 +60,14 @@ use({
 	config = function()
 		require('guess-indent').setup({})
 	end,
+})
+
+vim.filetype.add({
+	extension = {
+		vert = 'glsl',
+		frag = 'glsl',
+		comp = 'glsl',
+		dhall = 'dhall',
+		d2 = 'd2'
+	}
 })

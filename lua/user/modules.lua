@@ -24,4 +24,5 @@ return NewConfig({
 	'languages.python',
 	'languages.dhall',
 	'languages.latex',
+	'languages.d2',
 })

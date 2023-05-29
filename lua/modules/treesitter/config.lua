@@ -28,6 +28,7 @@ ensureGrammar('languages.json', 'json')
 ensureGrammar('languages.java', 'java')
 ensureGrammar('languages.dhall', 'dhall')
 ensureGrammar('languages.python', 'python')
+ensureGrammar('languages.d2', 'd2')
 
 require('nvim_context_vt').setup({
 	disable_virtual_lines = true,
