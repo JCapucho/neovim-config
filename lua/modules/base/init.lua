@@ -68,6 +68,8 @@ vim.filetype.add({
 		frag = 'glsl',
 		comp = 'glsl',
 		dhall = 'dhall',
-		d2 = 'd2'
+		d2 = 'd2',
+		mdx = "markdown.mdx",
+		mips = 'mips'
 	}
 })
