@@ -55,4 +55,46 @@ local function get_capabilites()
 	return capabilities
 end
 
-return { on_attach = on_attach, get_capabilites = get_capabilites }
+local function server_patch_settings(server_name, settings_patcher)
+	local bufnr = vim.api.nvim_buf_get_number(0)
+	local augroup_settings = vim.api.nvim_create_augroup(string.format('LspSettings-%s', server_name), {})
+	vim.api.nvim_clear_autocmds({ group = augroup_settings, buffer = bufnr })
+
+	local function patch_settings(client)
+		client.config.settings = settings_patcher(client.config.settings)
+		client.notify("workspace/didChangeConfiguration", {
+			settings = client.config.settings,
+		})
+	end
+
+	local clients = vim.lsp.get_active_clients({ name = server_name })
+	if #clients > 0 then
+		patch_settings(clients[1])
+		return
+	end
+
+	vim.api.nvim_create_autocmd("LspAttach", {
+		group = augroup_settings,
+		buffer = bufnr,
+		callback = function(args)
+			local client = vim.lsp.get_client_by_id(args.data.client_id)
+			if client.name == server_name then
+				patch_settings(client)
+				return true
+			end
+		end,
+	})
+end
+
+local function remove_server_patch_settings(server_name)
+	local bufnr = vim.api.nvim_buf_get_number(0)
+	local augroup_settings = vim.api.nvim_create_augroup(string.format('LspSettings-%s', server_name), {})
+	vim.api.nvim_clear_autocmds({ group = augroup_settings, buffer = bufnr })
+end
+
+return {
+	on_attach = on_attach,
+	get_capabilites = get_capabilites,
+	server_patch_settings = server_patch_settings,
+	remove_server_patch_settings = remove_server_patch_settings
+}

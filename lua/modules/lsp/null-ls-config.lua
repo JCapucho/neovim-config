@@ -17,10 +17,14 @@ if IsModuleEnabled("web") then
 		end
 	end
 
-	table.insert(sources, null_ls.builtins.formatting.prettier.with({
+	local prettier_config = {
 		prefer_local = "node_modules/.bin",
 		cwd = root_pattern("prettier.config.cjs", "prettier.config.js"),
-	}))
+		extra_filetypes = { "astro" },
+	}
+
+	table.insert(sources, null_ls.builtins.formatting.prettierd.with(prettier_config))
+	table.insert(sources, null_ls.builtins.formatting.prettier.with(prettier_config))
 	table.insert(sources, null_ls.builtins.code_actions.eslint.with({
 		prefer_local = "node_modules/.bin",
 		cwd = root_pattern(".eslintrc.cjs", ".eslintrc.js")

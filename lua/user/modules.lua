@@ -26,5 +26,6 @@ return NewConfig({
 	'languages.dhall',
 	'languages.latex',
 	'languages.d2',
+	'languages.astro',
 	'languages.asm',
 })

@@ -137,6 +137,13 @@ moduleServer("grammar", "ltex", function()
 		}
 	}
 end)
+moduleServer("languages.astro", "astro", function()
+	return {
+		init_options = {
+			typescript = {}
+		},
+	}
+end)
 
 local capabilities = lsp_utils.get_capabilites()
 
