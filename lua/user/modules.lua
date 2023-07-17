@@ -13,6 +13,7 @@ return NewConfig({
 	'notify',
 	'treesitter',
 	'completion',
+	'grammar',
 
 	'web',
 	'neorg',

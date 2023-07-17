@@ -112,6 +112,31 @@ moduleServer("web", "cssls")
 moduleServer("web", "tsserver")
 moduleServer("languages.dhall", "dhall_lsp_server")
 moduleServer("languages.latex", "texlab")
+moduleServer("grammar", "ltex", function()
+	return {
+		autostart = false,
+		filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc", "norg" },
+		flags = { debounce_text_changes = 300 },
+		settings = {
+			ltex = {
+				language = "en-GB",
+				disabledRules = {
+					["en"] = { "WHITESPACE_RULE" },
+					["en-GB"] = { "WHITESPACE_RULE" },
+					["pt-PT"] = { "WHITESPACE_RULE", "BARBARISMS_PT_PT_V3" },
+				}
+			},
+		},
+		handlers = {
+			["textDocument/publishDiagnostics"] = vim.lsp.with(
+				vim.lsp.diagnostic.on_publish_diagnostics, {
+					-- Disable virtual_text
+					virtual_text = false
+				}
+			),
+		}
+	}
+end)
 
 local capabilities = lsp_utils.get_capabilites()
 
