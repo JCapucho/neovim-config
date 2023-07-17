@@ -5,6 +5,10 @@ local sources = {
 	{},
 	{
 		{ name = 'path' },
+		{ name = 'buffer' },
+	},
+	{
+		{ name = 'emoji' },
 		{
 			name = 'spell',
 			option = {
@@ -13,7 +17,6 @@ local sources = {
 				end,
 			}
 		},
-		{ name = 'buffer' },
 	}
 }
 

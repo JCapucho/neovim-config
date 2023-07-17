@@ -4,6 +4,7 @@ use({ 'hrsh7th/cmp-cmdline' })
 use({ 'hrsh7th/cmp-buffer' })
 use({ 'hrsh7th/cmp-path' })
 use({ 'f3fora/cmp-spell' })
+use({ 'hrsh7th/cmp-emoji' })
 use({
 	'L3MON4D3/LuaSnip',
 	requires = { { 'rafamadriz/friendly-snippets' }, { 'saadparwaiz1/cmp_luasnip' } }
@@ -15,6 +16,7 @@ local after = {
 	'cmp-buffer',
 	'cmp-path',
 	'cmp-spell',
+	'cmp-emoji',
 	'LuaSnip',
 	'lspkind.nvim',
 }
