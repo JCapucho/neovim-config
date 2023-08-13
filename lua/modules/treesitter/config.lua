@@ -1,4 +1,4 @@
-local ensure_installed = {}
+local ensure_installed = { "query" }
 
 local function ensureGrammar(module, grammar)
 	if IsModuleEnabled(module) then
@@ -106,6 +106,14 @@ require('nvim-treesitter.configs').setup({
 				["[{"] = "@class.outer",
 			},
 		},
+	},
+	playground = {
+		enable = true,
+	},
+	query_linter = {
+		enable = true,
+		use_virtual_text = true,
+		lint_events = { "BufWrite", "CursorHold" },
 	},
 })
 

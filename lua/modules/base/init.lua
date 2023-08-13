@@ -1,5 +1,12 @@
 local use = require('packer').use
 
+if vim.g.neovide then
+	vim.o.guifont = "JetBrainsMono Nerd Font:h11"
+	vim.g.neovide_transparency = 0.8
+	vim.g.neovide_floating_blur_amount_x = 2.0
+	vim.g.neovide_floating_blur_amount_y = 2.0
+end
+
 vim.opt.clipboard = "unnamedplus" -- Use system's clipboard
 vim.opt.undofile = true           -- Enable global persistence
 vim.opt.ignorecase = true         -- Ignore case
