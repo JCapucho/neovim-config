@@ -43,10 +43,6 @@ require('nvim-treesitter.configs').setup({
 		enable = true,
 		additional_vim_regex_highlighting = false,
 	},
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-	},
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,
@@ -111,6 +107,31 @@ require('nvim-treesitter.configs').setup({
 		enable = true,
 		use_virtual_text = true,
 		lint_events = { "BufWrite", "CursorHold" },
+	},
+})
+
+local rainbow_delimiters = require 'rainbow-delimiters'
+require('rainbow-delimiters.setup')({
+	strategy = {
+		[''] = rainbow_delimiters.strategy['global'],
+	},
+	query = {
+		[''] = 'rainbow-delimiters',
+		javascript = 'rainbow-delimiters-react',
+		jsx = 'rainbow-delimiters-react',
+		tsx = 'rainbow-delimiters-react',
+		latex = 'rainbow-blocks',
+		lua = 'rainbow-blocks',
+		verilog = 'rainbow-blocks',
+	},
+	highlight = {
+		'RainbowDelimiterRed',
+		'RainbowDelimiterYellow',
+		'RainbowDelimiterBlue',
+		'RainbowDelimiterOrange',
+		'RainbowDelimiterGreen',
+		'RainbowDelimiterViolet',
+		'RainbowDelimiterCyan',
 	},
 })
 
