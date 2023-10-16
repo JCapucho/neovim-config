@@ -32,6 +32,9 @@ ensureGrammar('languages.d2', 'd2')
 ensureGrammar('languages.astro', 'astro')
 ensureGrammar('languages.asm', 'asm')
 ensureGrammar('languages.latex', 'latex')
+ensureGrammar('languages.go', 'go')
+ensureGrammar('languages.go', 'gomod')
+ensureGrammar('languages.c', 'c')
 
 require('nvim_context_vt').setup({
 	disable_virtual_lines = true,

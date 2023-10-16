@@ -28,4 +28,6 @@ return NewConfig({
 	'languages.d2',
 	'languages.astro',
 	'languages.asm',
+	'languages.go',
+	'languages.c',
 })

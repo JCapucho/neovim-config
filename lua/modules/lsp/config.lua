@@ -144,6 +144,7 @@ moduleServer("languages.astro", "astro", function()
 		},
 	}
 end)
+moduleServer("languages.c", "clangd")
 
 local capabilities = lsp_utils.get_capabilites()
 
