@@ -3,6 +3,11 @@ require('lspsaga').setup({
 		lines_above = 5,
 		lines_below = 5,
 	},
+	finder = {
+		keys = {
+			toggle_or_open = "<CR>",
+		}
+	},
 	request_timeout = 2000,
 })
 
@@ -11,7 +16,7 @@ vim.o.signcolumn = "no" -- Disable gutter
 require("which-key").register({
 	c = {
 		name = "code",
-		["f"] = { "<Cmd>Lspsaga lsp_finder<CR>", "Find" },
+		["f"] = { "<Cmd>Lspsaga finder<CR>", "Find" },
 		["a"] = { "<Cmd>Lspsaga code_action<CR>", "Apply code action" },
 		["r"] = { "<Cmd>Lspsaga rename<CR>", "Rename" },
 		["d"] = { function() vim.lsp.buf.definition() end, "Goto definition" },
