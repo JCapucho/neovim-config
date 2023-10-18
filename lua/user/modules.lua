@@ -30,4 +30,6 @@ return NewConfig({
 	'languages.asm',
 	'languages.go',
 	'languages.c',
+	'languages.fish',
+	'languages.bash',
 })
