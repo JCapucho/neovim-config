@@ -8,7 +8,7 @@ if vim.g.neovide then
 end
 
 vim.opt.clipboard = "unnamedplus" -- Use system's clipboard
-vim.opt.undofile = true           -- Enable global persistence
+vim.opt.undofile = true           -- Enable global undo persistence
 vim.opt.ignorecase = true         -- Ignore case
 -- Set the tab width to 4 spaces
 vim.opt.tabstop = 4
@@ -56,9 +56,6 @@ use({
 		end
 
 		require('Comment').setup(config)
-
-		local ft = require('Comment.ft')
-		ft.d2 = '#%s'
 	end
 })
 
