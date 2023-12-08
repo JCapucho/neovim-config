@@ -33,4 +33,5 @@ return NewConfig({
 	'languages.fish',
 	'languages.bash',
 	'languages.sql',
+	'languages.haskell',
 })

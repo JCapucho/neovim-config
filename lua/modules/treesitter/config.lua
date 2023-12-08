@@ -38,6 +38,7 @@ ensureGrammar('languages.c', 'c')
 ensureGrammar('languages.fish', 'fish')
 ensureGrammar('languages.bash', 'bash')
 ensureGrammar('languages.sql', 'sql')
+ensureGrammar('languages.haskell', 'haskell')
 
 require('nvim_context_vt').setup({
 	disable_virtual_lines = true,
