@@ -34,4 +34,5 @@ return NewConfig({
 	'languages.bash',
 	'languages.sql',
 	'languages.haskell',
+	'languages.matlab',
 })

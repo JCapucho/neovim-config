@@ -145,6 +145,15 @@ moduleServer("languages.astro", "astro", function()
 	}
 end)
 moduleServer("languages.c", "clangd")
+moduleServer("languages.matlab", "matlab_ls", function()
+	return {
+		settings = {
+			MATLAB = {
+				telemetry = false
+			},
+		}
+	}
+end)
 
 local capabilities = lsp_utils.get_capabilites()
 
