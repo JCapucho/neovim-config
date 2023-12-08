@@ -34,6 +34,9 @@ if IsModuleEnabled('lsp') then
 			local rt = require("rust-tools")
 
 			rt.setup({
+				tools = {
+					inlay_hints = { only_current_line = true }
+				},
 				server = {
 					on_attach = lsp_utils.on_attach,
 				},
