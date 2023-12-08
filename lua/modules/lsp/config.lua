@@ -84,7 +84,10 @@ moduleServer("languages.python", "pyright", function()
 		-- Find and use virtualenv via poetry in workspace directory.
 		local match = vim.fn.glob(path.join(workspace, 'poetry.lock'))
 		if match ~= '' then
-			local venv = vim.fn.trim(vim.fn.system('poetry --directory ' .. workspace .. ' env info -p'))
+			local handle = io.popen('poetry --directory ' .. workspace .. ' env info -p')
+			local result = handle:read("*a")
+			handle:close()
+			local venv = vim.fn.trim(result)
 			return path.join(venv, 'bin', 'python')
 		end
 
