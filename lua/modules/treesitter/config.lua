@@ -37,6 +37,7 @@ ensureGrammar('languages.go', 'gomod')
 ensureGrammar('languages.c', 'c')
 ensureGrammar('languages.fish', 'fish')
 ensureGrammar('languages.bash', 'bash')
+ensureGrammar('languages.sql', 'sql')
 
 require('nvim_context_vt').setup({
 	disable_virtual_lines = true,

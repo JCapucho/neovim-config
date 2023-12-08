@@ -8,6 +8,15 @@ if IsModuleEnabled("languages.python") then
 	table.insert(sources, null_ls.builtins.formatting.black)
 end
 
+if IsModuleEnabled("languages.sql") then
+	local options = {
+		extra_args = { "--dialect", "postgres" }
+	}
+
+	table.insert(sources, null_ls.builtins.diagnostics.sqlfluff.with(options))
+	table.insert(sources, null_ls.builtins.formatting.sqlfluff.with(options))
+end
+
 if IsModuleEnabled("web") then
 	local fallbackPatterns = { "package.json", ".git" }
 	local root_pattern = function(...)
