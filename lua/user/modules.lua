@@ -25,7 +25,6 @@ return NewConfig({
 	'languages.python',
 	'languages.dhall',
 	'languages.latex',
-	'languages.d2',
 	'languages.astro',
 	'languages.asm',
 	'languages.go',
