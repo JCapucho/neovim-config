@@ -7,7 +7,7 @@ require('dashboard').setup({
 				icon_hl = '@variable',
 				desc = 'Update',
 				group = '@property',
-				action = 'PackerSync',
+				action = 'Lazy sync',
 				key = 'u'
 			},
 			{

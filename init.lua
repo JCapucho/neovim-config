@@ -1,63 +1,48 @@
--- Function to ensure packer is installed
--- returns wether packer was already present or not
-local ensure_packer = function()
+-- Function to ensure lazy is installed
+-- returns wether lazy was already present or not
+local ensure_lazy = function()
 	local fn = vim.fn
-	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-		vim.cmd [[packadd packer.nvim]]
-		return true
+
+	local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
+	local bootstrap = not (vim.uv or vim.loop).fs_stat(lazypath);
+
+	if bootstrap then
+		fn.system({
+			"git",
+			"clone",
+			"--filter=blob:none",
+			"https://github.com/folke/lazy.nvim.git",
+			"--branch=stable", -- latest stable release
+			lazypath,
+		})
 	end
-	return false
+
+	vim.opt.rtp:prepend(lazypath)
+	return bootstrap
 end
 
-local packer_bootstrap = ensure_packer()
+local lazy_bootstrap = ensure_lazy()
 
--- Setup packer
-local packer = require("packer")
-packer.init({
-	display = {
-		open_fn = require('packer.util').float,
-	}
-})
-
--- Add essential packages
-packer.use({ 'wbthomason/packer.nvim' })
-packer.use({ 'nvim-lua/plenary.nvim' })
-
--- Load modules
-NewConfig = function(enabledModules)
-	local modules_set = {}
-	for _, name in ipairs(enabledModules) do modules_set[name] = true end
-	return modules_set
+-- Always required modules
+local modules = { "base" }
+for _, v in ipairs(require('user.modules')) do
+	table.insert(modules, v)
 end
 
-local modules = require('user.modules')
+local lazy_specs = {}
+local loaded_modules = {}
 
-IsModuleEnabled = function(module) return modules[module] end
-
-require('modules.base')
-
-for name, _ in pairs(modules) do
-	require(string.format('modules.%s', name))
+for _, name in ipairs(modules) do
+	loaded_modules[name] = true
+	local importspec = string.format('modules.%s.plugins', name);
+	table.insert(lazy_specs, { import = importspec })
 end
 
--- If packer wasn't installed make sure to sync the dependencies
-if packer_bootstrap then
-	require('packer').sync()
+IsModuleEnabled = function(module) return loaded_modules[module] end
+
+require("lazy").setup(lazy_specs)
+
+-- If lazy wasn't installed make sure to sync the dependencies
+if lazy_bootstrap then
+	require('lazy').install()
 end
-
--- Setup the reload config command
-function _G.ReloadConfig()
-	local reloader = require("plenary.reload")
-
-	packer.reset()
-
-	reloader.reload_module('user')
-	reloader.reload_module('modules')
-
-	dofile(vim.env.MYVIMRC)
-	require('packer').sync()
-end
-
-vim.cmd('command! ReloadConfig lua ReloadConfig()')

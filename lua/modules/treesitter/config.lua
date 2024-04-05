@@ -40,6 +40,7 @@ ensureGrammar('languages.bash', 'bash')
 ensureGrammar('languages.sql', 'sql')
 ensureGrammar('languages.haskell', 'haskell')
 ensureGrammar('languages.matlab', 'matlab')
+ensureGrammar('languages.gdscript', 'gdscript')
 
 require('nvim_context_vt').setup({
 	disable_virtual_lines = true,

@@ -157,6 +157,7 @@ moduleServer("languages.matlab", "matlab_ls", function()
 		}
 	}
 end)
+moduleServer("languages.gdscript", "gdscript")
 
 local capabilities = lsp_utils.get_capabilites()
 

@@ -34,10 +34,6 @@ if IsModuleEnabled("web") then
 
 	table.insert(sources, null_ls.builtins.formatting.prettierd.with(prettier_config))
 	table.insert(sources, null_ls.builtins.formatting.prettier.with(prettier_config))
-	table.insert(sources, null_ls.builtins.code_actions.eslint.with({
-		prefer_local = "node_modules/.bin",
-		cwd = root_pattern(".eslintrc.cjs", ".eslintrc.js")
-	}))
 end
 
 null_ls.setup({

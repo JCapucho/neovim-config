@@ -46,10 +46,12 @@ local function on_attach(client, bufnr)
 end
 
 local function get_capabilites()
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	local capabilities
 
 	if IsModuleEnabled('completion') then
 		capabilities = require('cmp_nvim_lsp').default_capabilities()
+	else
+		capabilities = vim.lsp.protocol.make_client_capabilities()
 	end
 
 	return capabilities

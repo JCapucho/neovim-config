@@ -119,7 +119,8 @@ _G._generate_user_statusline_highlights = function()
 		colors["UserRv" .. name] = { fg = value.bg, bg = value.fg, bold = true }
 	end
 
-	local status = vim.o.background == "dark" and { fg = pal.black, bg = pal.white } or { fg = pal.white, bg = pal.black }
+	local status = vim.o.background == "dark" and { fg = pal.black, bg = pal.white } or
+	{ fg = pal.white, bg = pal.black }
 
 	local groups = {
 		-- statusline
@@ -305,7 +306,7 @@ local active = {
 		c.fileinfo,
 		c.default, -- must be last
 	},
-	{ -- right
+	{        -- right
 		c.lsp_error,
 		c.lsp_warn,
 		c.lsp_info,
@@ -318,7 +319,7 @@ local active = {
 }
 
 local inactive = {
-	{ -- left
+	{            -- left
 		c.filetype,
 		c.default, -- must be last
 	},
@@ -331,7 +332,6 @@ require("feline").setup({
 	force_inactive = {
 		filetypes = {
 			"NvimTree",
-			"packer",
 			"dap-repl",
 			"dapui_scopes",
 			"dapui_stacks",

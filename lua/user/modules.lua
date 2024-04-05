@@ -1,4 +1,4 @@
-return NewConfig({
+return {
 	'icons',
 	'theming',
 	'dashboard',
@@ -10,7 +10,6 @@ return NewConfig({
 	'lsp',
 	'repl',
 	'neogit',
-	'notify',
 	'treesitter',
 	'completion',
 	'grammar',
@@ -34,4 +33,6 @@ return NewConfig({
 	'languages.sql',
 	'languages.haskell',
 	'languages.matlab',
-})
+	'languages.gdscript',
+	'languages.antlr',
+}
