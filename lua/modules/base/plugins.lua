@@ -60,4 +60,5 @@ return {
 		end
 	},
 	'nmac427/guess-indent.nvim',
+	'unblevable/quick-scope'
 }
