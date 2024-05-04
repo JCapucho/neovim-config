@@ -1,1 +1,4 @@
-return { 'dylon/vim-antlr' }
+return {
+	'dylon/vim-antlr',
+	ft = 'antlr4'
+}
