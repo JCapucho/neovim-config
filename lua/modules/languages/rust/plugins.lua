@@ -27,20 +27,17 @@ local plugins = {
 
 if IsModuleEnabled('lsp') then
 	table.insert(plugins, {
-		'simrat39/rust-tools.nvim',
-		ft = { 'rust' },
+		'mrcjkb/rustaceanvim',
+		version = '^4',
+		lazy = false,
 		config = function()
 			local lsp_utils = require('modules.lsp.utils')
-			local rt = require("rust-tools")
 
-			rt.setup({
-				tools = {
-					inlay_hints = { only_current_line = true }
-				},
+			vim.g.rustaceanvim = {
 				server = {
-					on_attach = lsp_utils.on_attach,
-				},
-			})
+					on_attach = lsp_utils.on_attach
+				}
+			}
 		end
 	})
 end
