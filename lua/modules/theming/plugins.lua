@@ -1,8 +1,10 @@
 return {
-	'EdenEast/nightfox.nvim',
-	config = function()
-		require('modules.theming.config')
-	end,
+	{
+		'EdenEast/nightfox.nvim',
+		config = function()
+			require('modules.theming.config')
+		end,
+	},
 }
 
 -- use({

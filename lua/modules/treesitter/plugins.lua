@@ -2,7 +2,6 @@ return {
 	'https://gitlab.com/HiPhish/rainbow-delimiters.nvim.git',
 	'haringsrob/nvim_context_vt',
 	'nvim-treesitter/nvim-treesitter-textobjects',
-	'JoosepAlviste/nvim-ts-context-commentstring',
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = function()

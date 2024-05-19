@@ -34,31 +34,10 @@ vim.filetype.add({
 	}
 })
 
-local commentAfter = {}
-
-if IsModuleEnabled('treesitter') then
-	table.insert(commentAfter, 'nvim-ts-context-commentstring')
-end
-
 return {
 	'folke/which-key.nvim',
 	'jghauser/mkdir.nvim',
 	"kylechui/nvim-surround",
-	{
-		'numToStr/Comment.nvim',
-		dependencies = commentAfter,
-		config = function()
-			local config = {}
-
-			if IsModuleEnabled('treesitter') then
-				config = {
-					pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-				}
-			end
-
-			require('Comment').setup(config)
-		end
-	},
 	'nmac427/guess-indent.nvim',
 	'unblevable/quick-scope'
 }
