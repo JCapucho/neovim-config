@@ -3,6 +3,14 @@ if vim.g.neovide then
 	vim.g.neovide_transparency = 0.8
 	vim.g.neovide_floating_blur_amount_x = 2.0
 	vim.g.neovide_floating_blur_amount_y = 2.0
+
+	vim.g.neovide_scale_factor = 1.0
+	vim.keymap.set("n", "<C-=>", function()
+		vim.g.neovide_scale_factor = math.min(vim.g.neovide_scale_factor + 0.1, 2.5)
+	end, { silent = true })
+	vim.keymap.set("n", "<C-->", function()
+		vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1, 0.1)
+	end, { silent = true })
 end
 
 vim.opt.clipboard = "unnamedplus" -- Use system's clipboard
