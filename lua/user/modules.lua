@@ -35,4 +35,5 @@ return {
 	'languages.matlab',
 	'languages.gdscript',
 	'languages.antlr',
+	'languages.jsonnet',
 }

@@ -41,6 +41,7 @@ ensureGrammar('languages.sql', 'sql')
 ensureGrammar('languages.haskell', 'haskell')
 ensureGrammar('languages.matlab', 'matlab')
 ensureGrammar('languages.gdscript', 'gdscript')
+ensureGrammar('languages.jsonnet', 'jsonnet')
 
 require('nvim_context_vt').setup({
 	disable_virtual_lines = true,
