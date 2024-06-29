@@ -13,6 +13,10 @@ if vim.g.neovide then
 	end, { silent = true })
 end
 
+-- Relative line numbers
+vim.wo.number = true
+vim.wo.relativenumber = true
+
 vim.opt.clipboard = "unnamedplus" -- Use system's clipboard
 vim.opt.undofile = true           -- Enable global undo persistence
 vim.opt.ignorecase = true         -- Ignore case
