@@ -160,6 +160,11 @@ moduleServer("languages.matlab", "matlab_ls", function()
 end)
 moduleServer("languages.gdscript", "gdscript")
 moduleServer("languages.jsonnet", "jsonnet_ls")
+moduleServer("languages.elixir", "elixirls", function()
+	return {
+		cmd = { "elixir-ls" }
+	}
+end)
 
 local capabilities = lsp_utils.get_capabilites()
 

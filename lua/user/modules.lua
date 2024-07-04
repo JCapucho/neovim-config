@@ -36,4 +36,5 @@ return {
 	'languages.gdscript',
 	'languages.antlr',
 	'languages.jsonnet',
+	'languages.elixir',
 }
