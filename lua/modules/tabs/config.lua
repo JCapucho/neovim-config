@@ -9,18 +9,14 @@ require('bufferline').setup({
 })
 
 -- Buffer navigation
-require("which-key").register({
-	["t"] = { "<Cmd>BufferNext<CR>", "Next buffer" },
-	["T"] = { "<Cmd>BufferPrevious<CR>", "Previous buffer" },
-}, { prefix = "g" })
+require("which-key").add({
+	{ "gT",         "<Cmd>BufferPrevious<CR>",           desc = "Previous buffer" },
+	{ "gt",         "<Cmd>BufferNext<CR>",               desc = "Next buffer" },
 
-require("which-key").register({
-	b = {
-		name = "buffer",
-		["b"] = { "<Cmd>BufferPick<CR>", "Select a buffer" },
-		["d"] = { "<Cmd>BufferClose<CR>", "Close the current buffer" },
-		["o"] = { "<Cmd>BufferCloseAllButCurrent<CR>", "Close all buffers except current" },
-		["k"] = { "<Cmd>BufferPickDelete<CR>", "Select a buffer to close" },
-		["K"] = { "<Cmd>BufferCloseAllButPinned<CR>", "Close all buffers" },
-	},
-}, { prefix = "<leader>" })
+	{ "<leader>b",  group = "buffer" },
+	{ "<leader>bK", "<Cmd>BufferCloseAllButPinned<CR>",  desc = "Close all buffers" },
+	{ "<leader>bb", "<Cmd>BufferPick<CR>",               desc = "Select a buffer" },
+	{ "<leader>bd", "<Cmd>BufferClose<CR>",              desc = "Close the current buffer" },
+	{ "<leader>bk", "<Cmd>BufferPickDelete<CR>",         desc = "Select a buffer to close" },
+	{ "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", desc = "Close all buffers except current" },
+})

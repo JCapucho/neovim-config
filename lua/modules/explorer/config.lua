@@ -10,11 +10,12 @@ require("oil").setup({
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("which-key").register({
-	["."] = {
+require("which-key").add({
+	{
+		"<leader>.",
 		function()
 			require("oil").open_float()
 		end,
-		"Open file explorer"
+		desc = "Open file explorer"
 	},
-}, { prefix = "<leader>" })
+})

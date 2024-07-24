@@ -143,6 +143,6 @@ require('rainbow-delimiters.setup')({
 	},
 })
 
-require("which-key").register({
-	o = { name = "object" },
-}, { prefix = "<leader>" })
+require("which-key").add({
+	{ "<leader>o", group = "object" },
+})

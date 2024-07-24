@@ -1,12 +1,10 @@
 local neogit = require('neogit')
 neogit.setup({})
 
-require("which-key").register({
-	g = {
-		name = "git",
-		["g"] = { "<Cmd>Neogit<CR>", "Open neogit" },
-	},
-}, { prefix = "<leader>" })
+require("which-key").add({
+	{ "<leader>g",  group = "git" },
+	{ "<leader>gg", "<Cmd>Neogit<CR>", desc = "Open neogit" },
+})
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "NeogitStatus", "NeogitPopup" },

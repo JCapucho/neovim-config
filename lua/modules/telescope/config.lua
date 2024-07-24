@@ -3,29 +3,33 @@ local utils = require('modules.telescope.utils')
 
 telescope.setup()
 
-require("which-key").register({
-	["<space>"] = {
-		function()
-			require('telescope.builtin').find_files()
-		end,
-		"Browse project's files"
-	},
-	["/"] = {
-		function()
-			require('telescope.builtin').live_grep()
-		end,
-		"Search in project's files"
-	},
-	[","] = {
+require("which-key").add({
+	{
+		"<leader>,",
 		function()
 			require('telescope.builtin').buffers()
 		end,
-		"Browse open buffers"
+		desc = "Browse open buffers"
 	},
-	["u"] = {
+	{
+		"<leader>/",
+		function()
+			require('telescope.builtin').live_grep()
+		end,
+		desc = "Search in project's files"
+	},
+	{
+		"<leader><space>",
+		function()
+			require('telescope.builtin').find_files()
+		end,
+		desc = "Browse project's files"
+	},
+	{
+		"<leader>u",
 		function()
 			require("telescope").extensions.undo.undo()
 		end,
-		"Navigate undo history"
+		desc = "Navigate undo history"
 	},
-}, { prefix = "<leader>" })
+})
