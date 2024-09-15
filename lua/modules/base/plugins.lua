@@ -33,7 +33,6 @@ vim.g.formatOnSave = true
 
 vim.keymap.set("n", "<esc>", "<esc><cmd>noh<cr>", { silent = true })
 
-
 vim.filetype.add({
 	extension = {
 		vert = 'glsl',
@@ -47,9 +46,10 @@ vim.filetype.add({
 })
 
 return {
-	'folke/which-key.nvim',
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+	},
 	'jghauser/mkdir.nvim',
-	"kylechui/nvim-surround",
-	'nmac427/guess-indent.nvim',
 	'unblevable/quick-scope'
 }

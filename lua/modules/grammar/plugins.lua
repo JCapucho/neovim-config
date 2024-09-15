@@ -1,7 +1,7 @@
 local lspEnabled = IsModuleEnabled("lsp")
 
 local function getLtexClient()
-	local buf_clients = vim.lsp.buf_get_clients()
+	local buf_clients = vim.lsp.get_clients()
 	local client = nil
 	for _, lsp in ipairs(buf_clients) do
 		if lsp.name == "ltex" then
@@ -39,7 +39,6 @@ local function disableSpellChecking()
 end
 
 vim.api.nvim_create_user_command('EnableSpellChecking', enableSpellChecking, { nargs = 1 })
-vim.api.nvim_create_user_command('DisableSpellChecking', disableSpellChecking, {})
 vim.api.nvim_create_user_command('DisableSpellChecking', disableSpellChecking, {})
 
 return {}

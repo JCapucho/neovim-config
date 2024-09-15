@@ -5,6 +5,8 @@ local sources = {
 	{},
 	{
 		{ name = 'path' },
+	},
+	{
 		{ name = 'buffer' },
 	},
 	{

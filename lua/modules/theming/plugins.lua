@@ -6,11 +6,3 @@ return {
 		end,
 	},
 }
-
--- use({
--- 	"folke/noice.nvim",
--- 	requires = { "MunifTanjim/nui.nvim" },
--- 	config = function()
--- 		require('modules.theming.noice')
--- 	end,
--- })

@@ -1,21 +1,18 @@
 return {
 	'icons',
 	'theming',
-	'dashboard',
 	'tabs',
 	'explorer',
 	'modeline',
 	'telescope',
 
 	'lsp',
-	'repl',
 	'neogit',
 	'treesitter',
 	'completion',
 	'grammar',
 
 	'web',
-	'neorg',
 	'languages.nix',
 	'languages.lua',
 	'languages.rust',

@@ -5,8 +5,7 @@ return {
 			local ccc = require("ccc")
 			ccc.setup({
 				auto_enable = true,
-				-- TODO: Disabled temporarily
-				lsp = false,
+				lsp = IsModuleEnabled("lsp"),
 			})
 		end
 	},

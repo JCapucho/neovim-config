@@ -1,8 +1,4 @@
-local telescope = require('telescope')
-local utils = require('modules.telescope.utils')
-
-telescope.setup()
-
+require('telescope').setup()
 require("which-key").add({
 	{
 		"<leader>,",
