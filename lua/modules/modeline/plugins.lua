@@ -1,5 +1,5 @@
 return {
-	'freddiehaddad/feline.nvim',
+	'nvim-lualine/lualine.nvim',
 	config = function()
 		require('modules.modeline.config')
 	end,
