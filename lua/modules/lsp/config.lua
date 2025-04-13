@@ -91,6 +91,15 @@ moduleServer("languages.python", "pyright", function()
 			return path.join(venv, 'bin', 'python')
 		end
 
+		-- Find and use virtualenv via uv in workspace directory.
+		local match = vim.fn.glob(path.join(workspace, 'uv.lock'))
+		if match ~= '' then
+			local handle = io.popen('uv --directory ' .. workspace .. ' python find')
+			local result = handle:read("*a")
+			handle:close()
+			return vim.fn.trim(result)
+		end
+
 		-- Fallback to system Python.
 		return utils.findExecutable({ 'python3', 'python' })
 	end
