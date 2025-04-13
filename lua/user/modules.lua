@@ -34,4 +34,5 @@ return {
 	'languages.antlr',
 	'languages.jsonnet',
 	'languages.elixir',
+	'languages.verilog',
 }
