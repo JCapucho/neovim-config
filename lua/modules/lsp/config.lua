@@ -166,6 +166,7 @@ moduleServer("languages.elixir", "elixirls", function()
 	}
 end)
 moduleServer("languages.verilog", "verible")
+moduleServer("languages.svelte", "svelte")
 
 local capabilities = lsp_utils.get_capabilites()
 

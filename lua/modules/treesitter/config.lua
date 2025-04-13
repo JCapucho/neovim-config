@@ -44,6 +44,7 @@ ensureGrammar('languages.gdscript', 'gdscript')
 ensureGrammar('languages.jsonnet', 'jsonnet')
 ensureGrammar('languages.elixir', 'elixir')
 ensureGrammar('languages.elixir', 'heex')
+ensureGrammar('languages.svelte', 'svelte')
 
 require('nvim_context_vt').setup({
 	disable_virtual_lines = true,

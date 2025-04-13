@@ -35,4 +35,5 @@ return {
 	'languages.jsonnet',
 	'languages.elixir',
 	'languages.verilog',
+	'languages.svelte'
 }
